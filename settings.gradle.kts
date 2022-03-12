@@ -6,6 +6,7 @@ pluginManagement {
     }
     plugins {
         kotlin("jvm").version(extra["kotlin.version"] as String)
+        kotlin("plugins.serialization").version(extra["kotlin.version"] as String)
     }
     repositories {
         gradlePluginPortal()
@@ -15,4 +16,5 @@ pluginManagement {
 
 rootProject.name = "Remap-Loom"
 
-include ("core")
+include("core")
+include("remap")

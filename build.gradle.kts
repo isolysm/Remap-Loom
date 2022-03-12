@@ -1,21 +1,18 @@
 plugins {
     java
     groovy
+    `kotlin-dsl`
     `maven-publish`
     kotlin("jvm") apply false
 }
 
-sourceCompatibility = 17
-targetCompatibility = 17
+val kotestVersion: String by project.extra
 
-repositories{
-    jcenter()
-}
-
-publishing {
-    publications {
-        register<MavenPublication>("remap-loom") {
-            group.id = "xyz.myosyn"
+gradlePlugin {
+    plugins {
+        register("remap-loom") {
+            id = "gg.myosyn.remaploom"
+            implementationClass = "gg.myosyn.remaploom.RemapLoomPlugin"
         }
     }
 }
