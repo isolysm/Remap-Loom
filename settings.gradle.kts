@@ -44,7 +44,7 @@ gradle.settingsEvaluated {
         throw GradleException("You're currently using ${getBuildJavaHome()}. Remap-Loom only supports Java versions 8 and up. Please switch to those versions so you can proceed.")
     }
 }
-
+/*
 val kotlinProjectPath: String? by settings
 if (kotlinProjectPath != null) {
     includeBuild(kotlinProjectPath!!) {
@@ -53,3 +53,4 @@ if (kotlinProjectPath != null) {
         }
     }
 }
+ */

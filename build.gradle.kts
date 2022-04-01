@@ -8,10 +8,17 @@ plugins {
     java
     groovy
     application
+    codenarc
 }
 
 group = "dev.myosyn"
 version = "1.0.0"
+
+dependencies {
+    implementation("")
+    compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
+
+}
 
 java {
     sourceCompatibility = JavaVersion.VERSION_17
@@ -36,9 +43,14 @@ gradlePlugin {
     }
 }
 
+codenarc {
+    toolVersion = "2.2.0"
+    configFile = file("codenarc.groovy")
+}
+
 subprojects {
     group = "dev.myosyn.tools.remaploom"
-    version = "1.0.0-PRE1"
+    version = "1.0.0-PRE1" + "-SNAPSHOT"
 
     tasks {
         withType<org.jetbrains.kotlin.gradle.tasks.KotlinCompile> {
