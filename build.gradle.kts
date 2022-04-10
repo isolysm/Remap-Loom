@@ -2,6 +2,7 @@ plugins {
     kotlin("jvm") version "1.6.20"
     kotlin("plugin.serialization") version "1.6.20"
     id("com.github.johnrengelman.shadow") version "7.1.2"
+
     idea
     `kotlin-dsl`
     `maven-publish`
@@ -15,14 +16,14 @@ group = "dev.myosyn"
 version = "1.0.0"
 
 dependencies {
-    implementation("")
-    compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.10")
+    compileOnly("org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.20")
+    implementation("com.google.devtools.ksp:symbol-processing-api:1.6.20-1.0.5")
 
 }
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_18
-    targetCompatibility = JavaVersion.VERSION_18
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
 }
 
 kotlin {
@@ -37,8 +38,8 @@ kotlin {
 gradlePlugin {
     plugins {
         register("remap-loom") {
-            id = "dev.myosyn.remaploom"
-            implementationClass = "dev.myosyn.gradle.remaploom.RemapLoomPlugin"
+            id = "dev.myosyn.tools.remap-loom"
+            implementationClass = "dev.myosyn.tools.remaploom"
         }
     }
 }
